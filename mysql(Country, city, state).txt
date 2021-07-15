@@ -1,0 +1,105 @@
+select *from country;
+
+select *from city;
+
+select *from state;
+
+
+
+create database dropdownb;
+
+show databases;
+
+use dropdownb;
+
+
+
+CREATE TABLE country (
+
+id int NOT NULL AUTO_INCREMENT,
+
+country varchar(20) NOT NULL default '',
+
+PRIMARY KEY  (id)
+
+);
+
+
+
+/* Создание таблицы для выбора штата */
+
+
+
+CREATE TABLE state (
+
+id int NOT NULL AUTO_INCREMENT,
+countryid int(4) NOT NULL,
+
+statename varchar(40) NOT NULL,
+PRIMARY KEY  (id)
+
+);
+
+
+
+/* Создание таблицы для выбора города */
+
+
+
+CREATE TABLE city (
+
+id int NOT NULL AUTO_INCREMENT,
+
+city varchar(50) default NULL,
+
+stateid int(4) default NULL,
+countryid int(4) NOT NULL,
+
+PRIMARY KEY  (id)
+);
+
+
+/* Вставить значения в таблицу стран */
+
+
+
+INSERT INTO country 
+
+VALUES 
+
+(1, 'США'),
+
+(2, 'Канада');
+
+
+/* Вставить значения в таблицу штатов */
+
+
+
+INSERT INTO state 
+
+VALUES 
+
+(1, 1, 'Нью-Йорк'),
+
+(2, 1, 'Лос Анжелес'),
+
+(3, 2, 'Британская Колумбия'),
+
+(4, 2, 'Торонто');
+
+
+/* Вставить значения в таблицу городов */
+
+
+
+INSERT INTO city 
+
+VALUES 
+
+(1, 'Лос Анжелес', 2, 1),
+
+(2, 'Нью-Йорк', 1, 1),
+
+(3, 'Торонто', 4, 2),
+(4, 'Ванкувер', 3, 2);
